@@ -1,9 +1,11 @@
 // ignore_for_file: avoid_print
 
 import 'package:flutter/material.dart';
-import 'questions.dart';
+import 'quizbrain.dart';
 
 void main() => runApp(const MyApp());
+
+QuizBrain quizbrain=QuizBrain();
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -58,11 +60,6 @@ class _QuizPageState extends State<QuizPage> {
   // Questions q1 = Questions(
   //     qText: 'You can lead a cow downstairs but not upstairs.', qAnswer: false);
 
-  List<Questions> queans = [
-    Questions('You can lead a cow downstairs but not upstairs.', false),
-    Questions('Approximately one quarter of a human bone are in the feet.', true),
-    Questions('A Slug\'s blood is green.', true),
-  ];
 
   @override
   Widget build(BuildContext context) {
@@ -76,7 +73,7 @@ class _QuizPageState extends State<QuizPage> {
             padding: const EdgeInsets.all(10),
             child: Center(
               child: Text(
-                queans[queno].qText,
+                quizbrain.queans[queno].qText,
                 style: const TextStyle(
                   color: Colors.white,
                   fontSize: 25,
@@ -90,7 +87,7 @@ class _QuizPageState extends State<QuizPage> {
           padding: const EdgeInsets.all(15),
           child: TextButton(
             onPressed: () {
-              bool correctanswers = queans[queno].qAnswer;
+              bool correctanswers = quizbrain.queans[queno].qAnswer;
               if (correctanswers == true) {
                 score.add(
                   const Icon(
@@ -124,7 +121,7 @@ class _QuizPageState extends State<QuizPage> {
           padding: const EdgeInsets.all(15),
           child: TextButton(
             onPressed: () {
-              bool correctanswers = queans[queno].qAnswer;
+              bool correctanswers = quizbrain.queans[queno].qAnswer;
               if (correctanswers == false) {
                 score.add(
                   const Icon(
