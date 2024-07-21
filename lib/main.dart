@@ -54,7 +54,7 @@ class _QuizPageState extends State<QuizPage> {
   //   true,
   // ];
 
-  int queno = 0;
+  
 
   //^ Object
   // Questions q1 = Questions(
@@ -73,7 +73,7 @@ class _QuizPageState extends State<QuizPage> {
             padding: const EdgeInsets.all(10),
             child: Center(
               child: Text(
-                quizbrain.queans[queno].qText,
+                quizbrain.getQueText(),
                 style: const TextStyle(
                   color: Colors.white,
                   fontSize: 25,
@@ -87,27 +87,27 @@ class _QuizPageState extends State<QuizPage> {
           padding: const EdgeInsets.all(15),
           child: TextButton(
             onPressed: () {
-              bool correctanswers = quizbrain.queans[queno].qAnswer;
+              bool correctanswers = quizbrain.getQueAns();
               if (correctanswers == true) {
                 score.add(
                   const Icon(
                     Icons.check,
-                    color: Colors.green,
+                    color: Color.fromARGB(255, 0, 255, 0),
                   ),
                 );
               } else {
                 score.add(
                   const Icon(
                     Icons.close,
-                    color: Colors.red,
+                    color: Color.fromARGB(255, 244, 0, 0),
                   ),
                 );
               }
               setState(() {
-                queno++;
+                quizbrain.nextque();
               });
             },
-            style: TextButton.styleFrom(backgroundColor: Colors.green),
+            style: TextButton.styleFrom(backgroundColor: const Color.fromARGB(255, 0, 255, 0)),
             child: const Text(
               'TRUE',
               style: TextStyle(
@@ -121,27 +121,27 @@ class _QuizPageState extends State<QuizPage> {
           padding: const EdgeInsets.all(15),
           child: TextButton(
             onPressed: () {
-              bool correctanswers = quizbrain.queans[queno].qAnswer;
+              bool correctanswers = quizbrain.getQueAns();
               if (correctanswers == false) {
                 score.add(
                   const Icon(
                     Icons.check,
-                    color: Colors.green,
+                    color: Color.fromARGB(255, 0, 255, 0),
                   ),
                 );
               } else {
                 score.add(
                   const Icon(
                     Icons.close,
-                    color: Colors.red,
+                    color: Color.fromARGB(255, 255,0, 0),
                   ),
                 );
               }
               setState(() {
-                queno++;
+                quizbrain.nextque();
               });
             },
-            style: TextButton.styleFrom(backgroundColor: Colors.red),
+            style: TextButton.styleFrom(backgroundColor: const Color.fromARGB(255, 255, 0, 0)),
             child: const Text(
               'FALSE',
               style: TextStyle(

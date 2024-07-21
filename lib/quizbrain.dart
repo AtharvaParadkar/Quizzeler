@@ -1,7 +1,10 @@
+// ignore_for_file: avoid_print
+
 import 'Questions.dart';
 
 class QuizBrain {
-  List<Questions> queans = [
+  int _queno = 0;
+  final List<Questions> _queans = [
     Questions('Some cats are actually allergic to humans', true),
     Questions('You can lead a cow down stairs but not up stairs.', false),
     Questions(
@@ -29,4 +32,20 @@ class QuizBrain {
         'In West Virginia, USA, if you accidentally hit an animal with your car, you are free to take it home to eat.',
         true),
   ];
+
+  void nextque() {
+    if (_queno < _queans.length-1) {
+      _queno++;
+    }
+    print('$_queno ');
+    print(_queans.length);
+  }
+
+  String getQueText() {
+    return _queans[_queno].qText;
+  }
+
+  bool getQueAns() {
+    return _queans[_queno].qAnswer;
+  }
 }
