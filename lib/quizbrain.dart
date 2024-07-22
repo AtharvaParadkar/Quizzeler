@@ -48,4 +48,18 @@ class QuizBrain {
   bool getQueAns() {
     return _queans[_queno].qAnswer;
   }
+
+  bool isfinished(){
+    if(_queno >= _queans.length-1){
+      print('Last Q');
+      return true;
+    }
+    else{
+      return false;
+    }
+  }
+
+  void reset(){
+    _queno=0;
+  }
 }
